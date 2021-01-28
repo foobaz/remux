@@ -20,3 +20,9 @@ It will only perform the conversion if it is lossless. For example, it will not 
 If Remux determines the video is already in the optimal format, it will still perform the conversion. This is bad for performance but good for thorough data normalization.
 
 Files without a video stream will be skipped, including images, audio files, and subtitle files. It is safe to run Remux on a directory with a mix of video and non-video files.
+
+If you wish to remux a large collection of files, I recommend using [GNU Parallel](https://www.gnu.org/software/parallel/).
+
+### Dependencies
+
+Remux does not depend on any 3rd party Python packages, only the standard library. However, it does depend on the ``ffmpeg`` and ``ffprobe`` command line tools. Remux was developed using Python 3.6.
