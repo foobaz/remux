@@ -16,7 +16,10 @@ args = parser.parse_args()
 temp_dst = ''
 
 def exit_handler(signum, frame):
-    os.remove(temp_dst)
+    try:
+        os.remove(temp_dst)
+    except FileNotFoundError:
+        pass
     sys.exit()
 
 def remux_to_extension(src, ext):
