@@ -9,6 +9,8 @@ import string
 import sys
 import subprocess
 
+not_video_format_names = {'apng', 'gif', 'image2', 'mjpeg', 'pipe', 'pngpipe', 'tty'}
+
 parser = argparse.ArgumentParser()
 parser.add_argument('src', type=str, nargs='+', help='path to video')
 args = parser.parse_args()
@@ -77,7 +79,7 @@ def is_video(src):
         return False
 
     name = f['format_name']
-    if name == 'gif' or name == 'image2' or name == 'mjpeg' or name == 'pipe' or name == 'pngpipe' or name == 'tty':
+    if name in not_video_format_names:
         #print('\tnot video because text file or image', file=sys.stderr)
         return False
 
